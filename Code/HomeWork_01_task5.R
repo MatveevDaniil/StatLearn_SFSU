@@ -34,14 +34,16 @@ summary_stats <- summary(data$weight)
 min_value <- min(data$weight)
 max_value <- max(data$weight)
 q1_value <- quantile(data$weight, 0.25)
+mean_value <- mean(data$weight)
 median_value <- median(data$weight)
 q3_value <- quantile(data$weight, 0.75)
 variance_value <- var(data$weight)
 std_deviation_value <- sd(data$weight)
 stats_data <- data.frame(
-  Statistic = c('Minimum', 'Maximum', 'Q1', 'Median', 'Q3', 'Standard Deviation', 'Variance'),
-  Value = c(min_value, max_value, q1_value, median_value, q3_value, std_deviation_value, variance_value)
+  Statistic = c('Minimum', 'Maximum', 'Q1', 'Mean', 'Median', 'Q3', 'Standard Deviation', 'Variance'),
+  Value = c(min_value, max_value, q1_value, mean_value, median_value, q3_value, std_deviation_value, variance_value)
 )
+stats_data$Value <- round(stats_data$Value, 1)
 write.csv(stats_data, './PlotsTables/hw_01_5_auto_weight_statistics.csv', row.names = FALSE)
 
 
