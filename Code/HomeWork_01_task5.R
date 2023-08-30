@@ -50,13 +50,13 @@ write.csv(stats_data, './PlotsTables/hw_01_5_auto_weight_statistics.csv', row.na
 # Let's create with plot with linear regression approximation
 #############################
 
-ggplot(data, aes(x = data$weight, y = data$mpg)) +
+auto_mpg_scatter <- ggplot(data, aes(x = data$weight, y = data$mpg)) +
   geom_point() +
   geom_smooth(aes(color = 'Linear Regression'), method = 'lm', se = FALSE) +
   scale_color_manual(values = 'blue', guide = guide_legend(title = NULL)) +
   labs(title = 'cars in Weight-MPG space', x = 'Weight', y = 'MPG') + 
   theme(legend.position = c(0.85, 0.85)) 
-ggsave('./PlotsTables/hw_01_5_auto_mpg_scatter.png', whist)
+ggsave('./PlotsTables/hw_01_5_auto_mpg_scatter.png', auto_mpg_scatter)
 
 
 #############################
